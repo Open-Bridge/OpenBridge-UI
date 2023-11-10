@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import localFont from "next/font/local";
 import { Questrial } from "next/font/google";
 import { Inter } from 'next/font/google'
-import EthProvider, { Providers } from '../provider'
+import EthProvider from '../provider'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
