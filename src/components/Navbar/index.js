@@ -71,7 +71,7 @@ export const Navbar = () => {
                   <p className="ml-0 mr-0 text-white cursor-pointer hover:font-light font-bold text-lg">
                     {page.name}
                   </p>
-                  {page.status === 'Live' &&<div
+                  {page.status === 'Live' && <div
                     className={` ${
                       page.status === "Live" ? "bg-green-500" : "bg-gray-400"
                     }  ${
