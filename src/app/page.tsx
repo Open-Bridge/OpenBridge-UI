@@ -4,6 +4,7 @@ import { Navbar} from '@/components/Navbar'
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import  NewTokens  from '@/components/NewTokens'
 import NewChains from '@/components/NewChains'
+import Transaction from '@/components/Transactions'
 export default function Home() {
   const router = ''
   return (
@@ -85,12 +86,12 @@ export default function Home() {
           </div>
         </section>
       </div>
-      {/**<TrendingPools />**/}
-      <div className="mt-[3.12rem] grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-8 pr-[1.06rem] sm:pr-8">
+      <div className="mt-[3.12rem] mb-10 grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-8 pr-[1.06rem] sm:pr-8">
        {/** <HotAirdrops />**/}
         <NewChains/>
         <NewTokens />
       </div>
+      <Transaction />
     </div>
     </div>
 

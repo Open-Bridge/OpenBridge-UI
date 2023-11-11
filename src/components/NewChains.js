@@ -20,30 +20,30 @@ export default function NewChains() {
         
         <li className="flex items-center justify-between py-4 px-4 gap-4 border-b border-[#51525C]">
           <div className="flex items-center gap-2">
-            <Image width={32} height={32} src="/icons/fuel.svg" alt="icon" />
+            <Image width={32} height={32} src="/icons/bsc-icon.svg" alt="icon" />
             <div className="flex flex-col">
               <h2 className="text-[#D1D1D6] text-base tracking-[-0.01rem]">
-                CornFlux
+                Binance Test Chain
               </h2>
-              <span className="text-[#A0A0AB] text-[0.75rem]">CFX</span>
+              <span className="text-[#A0A0AB] text-[0.75rem]">BNB</span>
             </div>
           </div>
           <p className="text-[#D0D5DD] tracking-[-0.00875rem] text-[0.875rem] rounded-[3.125rem] py-1 px-[0.63rem] bg-[#28282B]">
-            Optimism
+            Optimism Goerli
           </p>
         </li>
         <li className="flex items-center justify-between py-4 px-4 gap-4 border-b border-[#51525C]">
           <div className="flex items-center gap-2">
-            <Image width={32} height={32} src="/icons/fuel.svg" alt="icon" />
+            <Image width={32} height={32} src="/icons/fire.svg" alt="icon" />
             <div className="flex flex-col">
               <h2 className="text-[#D1D1D6] text-base tracking-[-0.01rem]">
-                CornFlux
+                Base Goerli
               </h2>
-              <span className="text-[#A0A0AB] text-[0.75rem]">CFX</span>
+              <span className="text-[#A0A0AB] text-[0.75rem]">ETH</span>
             </div>
           </div>
           <p className="text-[#D0D5DD] tracking-[-0.00875rem] text-[0.875rem] rounded-[3.125rem] py-1 px-[0.63rem] bg-[#28282B]">
-            Fantom
+            Optimism Goerli
           </p>
         </li>
         <li className="flex items-center justify-between py-4 px-4 gap-4">
@@ -51,13 +51,13 @@ export default function NewChains() {
             <Image width={32} height={32} src="/icons/fuel.svg" alt="icon" />
             <div className="flex flex-col">
               <h2 className="text-[#D1D1D6] text-base tracking-[-0.01rem]">
-                CornFlux
+                polygon
               </h2>
-              <span className="text-[#A0A0AB] text-[0.75rem]">CFX</span>
+              <span className="text-[#A0A0AB] text-[0.75rem]">MATIC</span>
             </div>
           </div>
           <p className="text-[#D0D5DD] tracking-[-0.00875rem] text-[0.875rem] rounded-[3.125rem] py-1 px-[0.63rem] bg-[#28282B]">
-            Fantom
+            BNB Chain
           </p>
         </li>
       </ul>

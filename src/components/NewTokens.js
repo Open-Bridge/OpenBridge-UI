@@ -29,48 +29,7 @@ export default function NewTokens() {
             Binance Smart Chain
           </p>
         </li>
-        <li className="flex items-center justify-between py-4 px-4 gap-4 border-b border-[#51525C]">
-          <div className="flex items-center gap-2">
-            <Image width={32} height={32} src="/icons/fuel.svg" alt="icon" />
-            <div className="flex flex-col">
-              <h2 className="text-[#D1D1D6] text-base tracking-[-0.01rem]">
-                CornFlux
-              </h2>
-              <span className="text-[#A0A0AB] text-[0.75rem]">CFX</span>
-            </div>
-          </div>
-          <p className="text-[#D0D5DD] tracking-[-0.00875rem] text-[0.875rem] rounded-[3.125rem] py-1 px-[0.63rem] bg-[#28282B]">
-            Optimism
-          </p>
-        </li>
-        <li className="flex items-center justify-between py-4 px-4 gap-4 border-b border-[#51525C]">
-          <div className="flex items-center gap-2">
-            <Image width={32} height={32} src="/icons/fuel.svg" alt="icon" />
-            <div className="flex flex-col">
-              <h2 className="text-[#D1D1D6] text-base tracking-[-0.01rem]">
-                CornFlux
-              </h2>
-              <span className="text-[#A0A0AB] text-[0.75rem]">CFX</span>
-            </div>
-          </div>
-          <p className="text-[#D0D5DD] tracking-[-0.00875rem] text-[0.875rem] rounded-[3.125rem] py-1 px-[0.63rem] bg-[#28282B]">
-            Fantom
-          </p>
-        </li>
-        <li className="flex items-center justify-between py-4 px-4 gap-4">
-          <div className="flex items-center gap-2">
-            <Image width={32} height={32} src="/icons/fuel.svg" alt="icon" />
-            <div className="flex flex-col">
-              <h2 className="text-[#D1D1D6] text-base tracking-[-0.01rem]">
-                CornFlux
-              </h2>
-              <span className="text-[#A0A0AB] text-[0.75rem]">CFX</span>
-            </div>
-          </div>
-          <p className="text-[#D0D5DD] tracking-[-0.00875rem] text-[0.875rem] rounded-[3.125rem] py-1 px-[0.63rem] bg-[#28282B]">
-            Fantom
-          </p>
-        </li>
+        
       </ul>
     </section>
   );
