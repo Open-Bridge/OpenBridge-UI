@@ -60,7 +60,7 @@ export const Navbar = () => {
             <Link href={"/"}>
               <div className="text-sm flex">
                 {/**<img className="w-[52px] h-[52px]" src="./assets/body.png" />**/}
-                <p className="text-green-400 text-3xl font-thin ml-1">Open<span className="text-white">Bridge</span></p>
+                <p className="text-white text-3xl font-thin ml-1">Open<span className="text-green-400">Bridge</span></p>
               </div>
             </Link>
           </div>
