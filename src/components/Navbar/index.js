@@ -24,6 +24,11 @@ export const Navbar = () => {
       url: "",
       status: "",
     },
+        {
+      name: "Faucet",
+      url: "faucet",
+      status: "",
+    },
     
   ];
   return (
@@ -67,7 +72,7 @@ export const Navbar = () => {
           <div className="mr-auto ml-auto px-2 py-2">
             <div className="flex flex-row">
               {Pages.map((page, i) => (
-                <div key={i} className="flex ml-2 mr-2">
+                <Link key={i} href={`/${page.url}`} className="flex ml-2 mr-2">
                   <p className="ml-0 mr-0 text-white cursor-pointer hover:font-light font-bold text-lg">
                     {page.name}
                   </p>
@@ -86,7 +91,7 @@ export const Navbar = () => {
                       {page.status}
                     </p>
                   </div>}
-                </div>
+                </Link>
               ))}
             </div>
           </div>
