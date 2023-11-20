@@ -16,7 +16,7 @@ export const Navbar = () => {
   const Pages = [
     {
       name: "Token Transfer",
-      url: "",
+      url: "transfer",
       status: "Live",
     },
     {
@@ -27,7 +27,7 @@ export const Navbar = () => {
         {
       name: "Faucet",
       url: "faucet",
-      status: "",
+      status: "Live",
     },
     
   ];
