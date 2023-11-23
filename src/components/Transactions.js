@@ -6,71 +6,54 @@ export default function Transaction() {
     const TrendingPoolsData = [
         {
           id: 1,
-          projectName: "Cardashian",
-          saleType: "Public",
-          price: 10,
-          minBuy: 100,
-          maxBuy: 1000,
-          totalSupply: 1000000,
-          dateOfCompletion: "17th April, 10:00am UTC +1"
+          projectName: "0x5cc73e87d89b473c...5c263e3287ce7dadff930",
+          saleType: "10 minutes ago (November 22, 2023 at 14:58:48 UTC)",
+          price: '0xbbb2...6651',
+          minBuy: '0x1c62...6586',
+          maxBuy: 'Pending',
         },
         {
           id: 2,
-          projectName: "Cardashian",
-          saleType: "Public",
-          price: 10,
-          minBuy: 100,
-          maxBuy: 1000,
-          totalSupply: 1000000,
-          dateOfCompletion: "17th April, 10:00am UTC +1"
+          projectName: "0x7c073e87d89b473c...5c263e3287ce7dadff930",
+          saleType: "20 minutes ago (November 22, 2023 at 14:58:48 UTC)",
+          price: '0xbbb2...6651',
+          minBuy: '0x1c62...6586',
+          maxBuy: 'Pending',
         },
         {
           id: 3,
-          projectName: "Cardashian",
-          saleType: "Public",
-          price: 10,
-          minBuy: 100,
-          maxBuy: 1000,
-          totalSupply: 1000000,
-          dateOfCompletion: "17th April, 10:00am UTC +1"
+          projectName: "0x9mc73e87d89b473c...5c263e3287ce7dadff930",
+          saleType: "40 minutes ago (November 22, 2023 at 14:58:48 UTC)",
+          price: '0xbbb2...6651',
+          minBuy: '0x1c62...6586',
+          maxBuy: 'Pending',
         },
         {
           id: 4,
-          projectName: "Cardashian",
-          saleType: "Public",
-          price: 10,
-          minBuy: 100,
-          maxBuy: 1000,
-          totalSupply: 1000000,
-          dateOfCompletion: "17th April, 10:00am UTC +1"
+          projectName: "0x1cc83e87d89b473c...5c263e3287ce7dadff930",
+          saleType: "3 hours ago (November 22, 2023 at 14:58:48 UTC)",
+          price: '0xbbb2...6651',
+          minBuy: '0x1c62...6586',
+          maxBuy: 'Pending',
         },
-        {
-          id: 5,
-          projectName: "Cardashian",
-          saleType: "Public",
-          price: 10,
-          minBuy: 100,
-          maxBuy: 1000,
-          totalSupply: 1000000,
-          dateOfCompletion: "17th April, 10:00am UTC +1"
-        },
+       
       ]
     return(
     <>
-        <section className="text-white pr-[1.06rem] sm:pr-8">
+      <section className="text-white lg:pr-[1.06rem] block">
       <div className="mb-[1.88rem] flex justify-between items-center">
         <div className="flex items-center gap-1">
-          <Image
+         {/**  <Image
             width={24}
             height={24}
             src="/icons/rocket.svg"
             alt="rocket icon"
-          />
-          <h3 className="text-[#F3CE92] text-2xl tracking-[-0.015rem]">
-            Latest Transactions
+          /> */}
+          <h3 className="text-white/95 lg:text-3xl text-xl tracking-[-0.015rem]">
+            Transactions
           </h3>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center text-md  gap-1">
           <h3>View on Explorer</h3>
           <Image
             className="-rotate-90 w-[14px]"
@@ -81,13 +64,13 @@ export default function Transaction() {
       </div>
       {/* table */}
 
-      <div className="w-fit md:w-full grid grid-cols-1 overflow-x-auto rounded-[0.625rem] border border-[#51525C] bg-[#1D1C20]">
+      <div className="w[80%] md:w-full grid grid-cols-1  lg:overflow-x-none overflow-x-auto rounded-[0.625rem] border border-green-400 bg-green-700/25">
         <table
           className="w-full border-collapse table pr-[2.31rem]"
           cellPadding={10}
         >
           <thead className="">
-            <tr className="whitespace-nowrap text-left border-b border-[#51525C]">
+            <tr className="whitespace-nowrap text-left border-b border-green-400/25">
               <th
                 className="text-[#D1D1D6] text-[0.75rem] tracking-[-0.0075rem]"
                 id="project-name"
@@ -98,44 +81,33 @@ export default function Transaction() {
                 className="text-[#D1D1D6] text-[0.75rem] tracking-[-0.0075rem]"
                 id="project-name"
               >
-                PROJECT
+                Message ID
               </th>
               <th
                 className="text-[#D1D1D6] text-[0.75rem] tracking-[-0.0075rem]"
                 id="sale-type"
               >
-                SALE TYPE
+                Age
               </th>
               <th
                 className="text-[#D1D1D6] text-[0.75rem] tracking-[-0.0075rem]"
                 id="price"
               >
-                PRICE
+                From
               </th>
               <th
                 className="text-[#D1D1D6] text-[0.75rem] tracking-[-0.0075rem]"
                 id="min-buy"
               >
-                MIN BUY
+               To
               </th>
               <th
                 className="text-[#D1D1D6] text-[0.75rem] tracking-[-0.0075rem]"
                 id="max-buy"
               >
-                MAX BUY
+                Status
               </th>
-              <th
-                className="text-[#D1D1D6] text-[0.75rem] tracking-[-0.0075rem]"
-                id="total-supply"
-              >
-                TOTAL SUPPLY
-              </th>
-              <th
-                className="text-[#D1D1D6] text-[0.75rem] tracking-[-0.0075rem]"
-                id="date-of-completion"
-              >
-                DATE OF COMPLETION
-              </th>
+             
             </tr>
           </thead>
           <tbody className="mt-[1.19rem] text-sm">
@@ -143,7 +115,7 @@ export default function Transaction() {
               <tr key={data?.id} className="whitespace-nowrap">
                 <th
                   // id={data?.id}
-                  className="bg-[#26272B] border-r border-[#51525C]"
+                  className="bg-green-700/25 border-r border-green-400"
                 >
                   {data?.id}.
                 </th>
@@ -152,10 +124,7 @@ export default function Transaction() {
                 <td headers={`price ${data?.id}`}>{data?.price}</td>
                 <td headers={`min-buy ${data?.id}`}>{data?.minBuy}</td>
                 <td headers={`max-buy ${data?.id}`}>{data?.maxBuy}</td>
-                <td headers={`total-supply ${data?.id}`}>
-                  {data?.totalSupply}
-                </td>
-                <td headers={`date ${data?.id}`}>{data?.dateOfCompletion}</td>
+
               </tr>
             ))}
           </tbody>

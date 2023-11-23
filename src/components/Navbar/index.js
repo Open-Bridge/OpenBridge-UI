@@ -42,8 +42,8 @@ export const Navbar = () => {
           <div className="ml-0 mr-auto mt-auto mb-auto">
             <Link href={"/"}>
               <div className="text-xl font-semibold flex">
-                <img className="w-12 h-13" src="./assets/body.png" />
-                <p className="text-green-300 font-thin ml-1">Beta</p>
+               {/**<img className="w-[52px] h-[52px]" src="./assets/body.png" />**/}
+               <p className="text-white text-2xl font-thin ml-1">Open<span className="text-green-400">Bridge</span></p>
               </div>
             </Link>
           </div>
