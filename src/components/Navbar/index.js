@@ -21,8 +21,8 @@ export const Navbar = () => {
     },
     {
       name: "NFTs Bridge",
-      url: "",
-      status: "",
+      url: "nft",
+      status: "Live",
     },
         {
       name: "Faucet",
@@ -154,7 +154,7 @@ export const Navbar = () => {
                       onClick={openChainModal}
                       style={{ display: "flex", alignItems: "center" }}
                       type="button"
-                      className="bg-[#28282B] text-white p-[0.625rem] h-10 border-[0.5px] rounded-[3.125rem] border-[#424242] flex items-center gap-[0.62rem]"
+                      className="bg-[#28282B] text-white p-[0.625rem] h-10 border-[0.5px] rounded-[3.125rem] border-green-400/70 flex items-center gap-[0.62rem]"
                     >
                       {chain.hasIcon && (
                         <div
@@ -190,7 +190,7 @@ export const Navbar = () => {
                     <button
                       onClick={openAccountModal}
                       type="button"
-                      className="bg-[#28282B] text-white p-[0.625rem] px-4 border-[0.5px] h-10 w-32 rounded-[3.125rem] border-[#424242] flex items-center gap-[0.62rem]"
+                      className="bg-[#28282B] text-white p-[0.625rem] px-4 border-[0.5px] h-10 w-32 rounded-[3.125rem] border-green-400/60 flex items-center gap-[0.62rem]"
                     >
                       {account.displayName}
                     </button>

@@ -3,7 +3,7 @@
 // import Wallet from "../components/Wallet";
 import { ChainSelector } from '@/components/Transfer/chainSelector'
 import { MoreDetails } from '@/components/Transfer/Details'
-import { TokenSelect } from '@/components/Transfer/TokenSelect'
+import { NFTSelect } from '@/components/Transfer/NFTSelect'
 import { Navbar } from '@/components/Navbar'
 import React from 'react'
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -31,7 +31,7 @@ export default function Home() {
           {/**main transfer header**/}
           <div className='text-white flex py-2 w-[95%] ml-auto mr-auto h-12'>
             <div className='ml-3 mr-auto py-1 px-1'>
-              <p className='text-xl font-extralight'>Bridge</p>
+              <p className='text-xl font-extralight'>NFT Bridge</p>
             </div>
             <div className='ml-auto mr-3'>
               <div className='w-8 h-8 py-1.5 px-1 hover:bg-green-400/60 cursor-pointer rounded-lg bg-green-400/30'>
@@ -62,14 +62,14 @@ export default function Home() {
                 <p className='ml-2 mr-auto'>You send</p>
                 <p className='ml-auto mr-4'>Balance</p>
               </div>
-              <TokenSelect />
+              <NFTSelect />
             </div>
             <div className='ml-auto mr-auto w-[100%] mt-5 py-1 px-1 mb-4'>
               <div className='flex mb-2'>
                 <p className='ml-2 mr-auto'>You Receive</p>
                 <p className='ml-auto mr-4'>Balance</p>
               </div>
-              <TokenSelect />
+              <NFTSelect />
             </div>
             <div className='ml-auto mr-auto w-[100%] mt-4 py-1 px-1 mb-4'>
               <MoreDetails />
