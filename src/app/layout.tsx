@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import localFont from "next/font/local";
 import { Questrial } from "next/font/google";
 import { Inter } from 'next/font/google'
+//import { BridgeContextProvider } from '../context/context'
+import { BridgeContextProvider } from '@/context/context';
 import EthProvider from '../provider'
 import './globals.css'
 
@@ -40,9 +42,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <BridgeContextProvider>
         <EthProvider>
-          <body  className={`${questrial.className} relative`}>{children}</body>
+            <body  className={`${questrial.className} relative`}>{children}</body>
         </EthProvider>
+      </BridgeContextProvider>
     </html>
   )
 }
