@@ -8,15 +8,15 @@ import Transaction from '@/components/Transactions'
 import { GlobalContext } from '@/context/context'
 import { ChainList } from '@/components/Suspense/ChainList';
 export default function Home() {
-  const { openChainModal }:any = GlobalContext()
+  
   const router = ''
-  console.log(openChainModal)
+  //console.log(openChainModal)
   return (
     <div className='w-100% h-auto '>
       <Navbar />
       <div className="w-[88%] pt-5 mt-0 mb-20 ml-auto mr-auto pl-[1.06rem] sm:pl-8 overflow-x-hidden">
       {/**<LatestPools />**/}
-      {openChainModal && <ChainList />}
+      
       {/* HERO CONTENT */}
       <div className=" text-white lg:mt-[200px] mt-[140px] text-center xl:text-left pr-[1.06rem] sm:pr-8 ">
         <h1 className="lg:text-7xl mb-3 sm:mb-2 text-3xl text-extrabold tracking-[-0.075rem] sm:leading-[3.375rem]">
