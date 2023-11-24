@@ -2,6 +2,8 @@
 // import Image from 'next/image'
 // import Wallet from "../components/Wallet";
 import { ChainSelector } from '@/components/Transfer/chainSelector'
+import { ChainList } from '@/components/Suspense/ChainList'
+import { TokenList } from '@/components/Suspense/TokenList'
 import { MoreDetails } from '@/components/Transfer/Details'
 import { TokenSelect } from '@/components/Transfer/TokenSelect'
 import { Navbar } from '@/components/Navbar'
@@ -16,20 +18,21 @@ import { GlobalContext } from '@/context/context'
 export default function Home() {
   const [token, setToken] = React.useState("");
   const [user, setUser] = React.useState("");
-  const [chain, setChain] = React.useState("");
+  const [chain, setChain] = React.useState(false);
   const { chainSelect }: any = GlobalContext();
   const claimToken = () => {
     console.log({ user, token, chain });
     console.log(chainSelect)
+    setChain(true)
   }
   //const  chainSelect  = GlobalContext();
   return (
     <div className='w-100%  flex'>
       <Navbar />
-      <div className="w-[86%] h-[110vh]  mt-8 flex justify-center items-center pt-5 mb-20 ml-auto mr-auto ">
-        <div className=' w-[45%] h-[97vh] py-4 px-3 drop-shadow-glow  bg-black/80 rounded-3xl'>
+      <div className="w-[85%] h-[110vh]  mt-8 flex justify-center items-center pt-5 mb-20 ml-auto mr-auto ">
+        <div className=' w-[42%] h-[95vh] py-4 px-3 drop-shadow-glow  bg-black/80 rounded-3xl'>
           {/**main transfer header**/}
-          <div className='text-white flex py-2 w-[95%] ml-auto mr-auto h-12'>
+          <div className='text-white flex py-2 w-[93%] ml-auto mr-auto h-12'>
             <div className='ml-3 mr-auto py-1 px-1'>
               <p className='text-xl font-extralight'>Bridge</p>
             </div>
@@ -41,7 +44,7 @@ export default function Home() {
           </div>
           {/**main transfer card chain select**/}
           <div className='text-white flex py-2 w-[95%] mt-10 ml-auto mr-auto h-12'>
-            <div className='ml-3 mr-auto w-[45%] py-1 px-1 mb-4'>
+            <div className='ml-0 mr-auto w-[45%] py-1 px-1 mb-4'>
               <p className='text-sm font-bold text-center mb-4'>Origin</p>
               <ChainSelector />
             </div>
@@ -75,7 +78,7 @@ export default function Home() {
               <MoreDetails />
             </div>
             <div className='w-[100%] mt-8 flex'>
-              <button onClick={() => claimToken()} className='w-[80%] bg-green-500/70 h-12 rounded-3xl cursor-pointer ml-auto mr-auto'>Transfer</button>
+              <button onClick={() => claimToken()} className='w-[100%] bg-green-500/70 h-12 rounded-xl cursor-pointer ml-auto mr-auto'>Transfer</button>
             </div>
           </div>
           {/** nan */}

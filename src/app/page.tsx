@@ -5,8 +5,12 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import  NewTokens  from '@/components/NewTokens'
 import NewChains from '@/components/NewChains'
 import Transaction from '@/components/Transactions'
+import { GlobalContext } from '@/context/context'
+import { ChainList } from '@/components/Suspense/ChainList';
 export default function Home() {
+  
   const router = ''
+  //console.log(openChainModal)
   return (
     <div className='w-100% h-auto '>
       <Navbar />
