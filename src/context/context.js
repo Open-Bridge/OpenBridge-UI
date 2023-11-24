@@ -8,11 +8,15 @@ import {
 } from "react";
 
 export const BridgeContext = createContext({
-    BridgeContext: null
+    
 })
 
 export function BridgeContextProvider ({children}) {
-    const [chainSelect, setChainSelect] = useState('BNB')
+    //modals
+    const [chainSelect,setChainSelect] = useState('');
+    const [openChainModal, setOpenChainModal] = useState(true);
+    const [openTokenModal, setOpenTokenModal] = useState(false);
+
 
     useEffect(() => {
       if (chainSelect) {
@@ -22,6 +26,11 @@ export function BridgeContextProvider ({children}) {
     [chainSelect])
     const value = {
         chainSelect,
+        openChainModal,
+        openTokenModal,
+        setChainSelect,
+        setOpenTokenModal,
+        setOpenChainModal
     }
     return (
         <BridgeContext.Provider value={value}>
