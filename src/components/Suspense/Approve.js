@@ -35,7 +35,7 @@ export const ChainList = () => {
             <div className="w-[95%] ml-auto mr-auto h-auto  mb-4 py-4 px-4">
                 {
                     Chains.map((chain, i) => (
-                        <div className="w-[100%] h-14 ml-auto mr-auto">
+                        <div key={i} className="w-[100%] h-14 ml-auto mr-auto">
                             <div className="flex mt-2 mb-2 py-2 px-2 rounded-xl border border-green-500">
                                 <img className="w-8 h-8 ml-5 mr-8" src={chain.logoUrl} alt={chain.native} />
                                 <p className="py-1 px-1 font-semibold text-md">{chain.name}</p>

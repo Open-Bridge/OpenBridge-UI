@@ -7,11 +7,9 @@ import {
   useEffect,
 } from "react";
 
-export const BridgeContext = createContext({
-    
-})
+export const BridgeContext = createContext()
 
-export function BridgeContextProvider ({children}) {
+export function BridgeContextProvider({children}) {
     //modals
     const [chainSelect,setChainSelect] = useState('');
     const [openChainModal, setOpenChainModal] = useState(true);
