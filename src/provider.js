@@ -40,7 +40,7 @@ export default function EthProvider({children}) {
       <WagmiConfig config={wagmiConfig}>
 		<RainbowKitProvider
 		       chains={chains}
-			   theme={darkTheme()}
+			   theme={midnightTheme()}
 			   coolMode
 		>
          {children}

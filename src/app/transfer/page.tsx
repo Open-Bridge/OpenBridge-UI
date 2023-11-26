@@ -21,7 +21,7 @@ export default function Home() {
   const [token, setToken] = React.useState("");
   const [user, setUser] = React.useState("");
   const [chain, setChain] = React.useState(false);
-  const { isModalShowing,isTokenShowing, isModal2Showing } = GlobalContext();
+  const { isModalShowing,isTokenShowing, isModal2Showing, expandDetails } = GlobalContext();
   const claimToken = () => {
     console.log({ user, token, chain });
     console.log(isModalShowing)
@@ -34,8 +34,8 @@ export default function Home() {
       {isModal2Showing && <DestList/>}
       {isModalShowing && <ChainList/>}
       {isTokenShowing && <TokenList/>}
-      <div className="w-[85%] h-[110vh]  mt-8 flex justify-center items-center pt-5 mb-20 ml-auto mr-auto ">
-        <div className=' w-[42%] h-[95vh] py-6 px-4 px-3 drop-shadow-glow  bg-black/80 rounded-3xl'>
+      <div className={ `w-[85%] h-[110vh]  mt-8 flex justify-center items-center pt-5 mb-20 ml-auto mr-auto `}>
+        <div className={` w-[42%] ${expandDetails ? 'h-[112vh]' : 'h-[95vh]'} py-6 px-4 px-3 drop-shadow-glow  bg-black/80 rounded-3xl`}>
           {/**main transfer header**/}
           <div className='text-white flex py-2 w-[93%] ml-auto mr-auto h-12'>
             <div className='ml-3 mr-auto py-1 px-1'>
