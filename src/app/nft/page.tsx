@@ -2,7 +2,7 @@
 // import Image from 'next/image'
 // import Wallet from "../components/Wallet";
 //import { ChainSelector } from '@/components/Transfer/ChainSelector'
-import { ChainSelect } from '@/components/Transfer/ChainSelector'
+//import { ChainSelect } from '@/components/Transfer/ChainSelector'
 import { MoreDetails } from '@/components/Transfer/Details'
 import { NFTSelect } from '@/components/Transfer/NFTSelect'
 import { Navbar } from '@/components/Navbar'
