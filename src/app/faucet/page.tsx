@@ -6,7 +6,7 @@ import { TokenList } from '@/components/Suspense/TokenList'
 import { GlobalContext } from '@/context/context';
 import { Navbar} from '@/components/Navbar'
 import { TokenSelect } from '@/components/Transfer/TokenSelect';
-import { ChainSelector } from '@/components/Transfer/ChainSelector';
+import { ChainSelect } from '@/components/Transfer/ChainSelector';
 //import { ChainSelector } from '@/components/Transfer/ChainSelector';
 import { AddressInput } from '@/components/Transfer/InputAddress'
 import React from 'react'
@@ -37,7 +37,7 @@ export default function Home() {
                     <TokenSelect />
                 </div>
                 <div className='w-[45%] ml-auto mr-0'>
-                    <ChainSelector />
+                    <ChainSelect />
                 </div>
             </div>
             <div className='w-full mt-10'>

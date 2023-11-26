@@ -2,16 +2,11 @@
 // import Image from 'next/image'
 // import Wallet from "../components/Wallet";
 //import { ChainSelector } from '@/components/Transfer/ChainSelector'
-import { ChainSelector } from '@/components/Transfer/ChainSelector'
+import { ChainSelect } from '@/components/Transfer/ChainSelector'
 import { MoreDetails } from '@/components/Transfer/Details'
 import { NFTSelect } from '@/components/Transfer/NFTSelect'
 import { Navbar } from '@/components/Navbar'
 import React from 'react'
-// import { ConnectButton } from "@rainbow-me/rainbowkit";
-// import  NewTokens  from '@/components/NewTokens'
-// import NewChains from '@/components/NewChains'
-// import Transaction from '@/components/Transactions'
-//import { GlobalContext } from '@/context/context';
 import { GlobalContext } from '@/context/context'
 
 export default function Home() {
@@ -44,7 +39,7 @@ export default function Home() {
           <div className='text-white flex py-2 w-[90%] mt-10 ml-auto mr-auto h-12'>
             <div className='ml-0 mr-auto w-[45%] py-1 px-1 mb-4'>
               <p className='text-sm font-bold text-center mb-4'>Origin</p>
-              <ChainSelector />
+              <ChainSelect />
             </div>
             <div className='ml-auto mr-auto  w-[10%] py-12'>
               <div className='w-8 h-8 py-1.5 px-1 ml-auto mr-auto  rounded-lg bg-green-400/30'>
@@ -53,7 +48,7 @@ export default function Home() {
             </div>
             <div className='ml-auto mr-3 w-[45%] py-1 mb-4 px-1'>
               <p className='text-sm text-center font-bold mb-4'>Destination</p>
-              <ChainSelector />
+              <ChainSelect />
             </div>
           </div>
           {/**main transfer card address input**/}
