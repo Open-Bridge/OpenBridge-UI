@@ -15,8 +15,8 @@ export default function Home() {
   return (
     <div className='w-100% h-auto flex flex-col'>
       <Navbar />
-      <div>
-      {isModalShowing && <ChainList/>}
+      <div className=''>
+        {isModalShowing && <ChainList/>}
       </div>
       <div className="w-[88%] pt-5 mt-0 mb-20 ml-auto mr-auto pl-[1.06rem] sm:pl-8 overflow-x-hidden">
       {/**<LatestPools />**/}

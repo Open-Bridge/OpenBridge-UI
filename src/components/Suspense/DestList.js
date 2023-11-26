@@ -1,6 +1,8 @@
 import { GlobalContext } from "@/context/context";
+import { useNetwork } from "wagmi";
 export const DestList = () => {
-    const {setIsModal2Showing, setDestinationChain} = GlobalContext()
+    const { chains } = useNetwork()
+    const {setIsModal2Showing, setDestinationChain, setDestinationChainID} = GlobalContext()
     const Chains = [
         {
           name: 'Optimism Goerli',
@@ -34,17 +36,23 @@ export const DestList = () => {
             <div className=" w-[95%] ml-auto mr-auto flex h-12 mb-4 py-4 px-4">
                 <p className="text-xl ml-0 mr-auto">Select Chain</p>
                 <div className="text-xl mr-0 ml-auto">
-                <div onClick={() => setIsModal2Showing(false)} className='w-8 h-8 py-1.5 px-1 cursor-pointer hover:bg-green-400/60 cursor-pointer rounded-lg bg-green-400/30'>
+                <div onClick={() => 
+                  setIsModal2Showing(false)} className='w-8 h-8 py-1.5 px-1 cursor-pointer hover:bg-green-400/60 cursor-pointer rounded-lg bg-green-400/30'>
                 <img src='/icons/home-icon.svg' className='ml-auto mr-auto' />
                 </div>
                 </div>
             </div>
             <div className="w-[95%] ml-auto mr-auto h-auto  mb-4 py-4 px-4">
                 {
-                    Chains.map((chain, i) => (
+                    chains.map((chain, i) => (
                         <div key={i} className="w-[100%] h-14 ml-auto mr-auto">
-                            <div onClick={() => setDestinationChain(chain.name)} className="flex mt-1 mb-1 py-2 px-2 rounded-xl border cursor-pointer border-green-500">
-                                <img className="w-8 h-8 ml-5 mr-8" src={chain.logoUrl} alt={chain.native} />
+                            <div onClick={() => {
+                             setDestinationChain(chain.name)
+                             setDestinationChainID(chain.id)
+                             setIsModal2Showing(false)
+                            }
+                            } className="flex mt-1 mb-1 py-2 px-2 rounded-xl border cursor-pointer border-green-500">
+                                <img className="w-8 h-8 ml-5 mr-8" src={`/icons/${chain.id}.svg`} alt={chain.nativeCurrency} />
                                 <p className="py-1 px-1 font-semibold text-md">{chain.name}</p>
                             </div>
                         </div>

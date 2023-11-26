@@ -23,8 +23,9 @@ export function BridgeContextProvider({ children }: Props) {
   const [isTokenShowing, setIsTokenShowing] = useState(false);
   const [originChain, setOriginChain] = useState("Select Chain");
   const [destinationChain, setDestinationChain] = useState('Select Chain')
+  const [destinationChainID, setDestinationChainID] = useState(0)
   const [selectedToken, setSelectedToken] = useState("Select Token");
-  const [selectedTokenLogo, setSelectedTokenLogo] = useState("");
+  const [selectedTokenLogo, setSelectedTokenLogo] = useState("/icons/coin.svg");
 
 
 
@@ -37,6 +38,7 @@ export function BridgeContextProvider({ children }: Props) {
         isTokenShowing,
         originChain,
         destinationChain,
+        destinationChainID,
         selectedTokenLogo,
         selectedToken,
         setIsModalShowing,
@@ -44,6 +46,7 @@ export function BridgeContextProvider({ children }: Props) {
         setIsTokenShowing,
         setOriginChain,
         setSelectedTokenLogo,
+        setDestinationChainID,
         setDestinationChain,
         setSelectedToken
   };

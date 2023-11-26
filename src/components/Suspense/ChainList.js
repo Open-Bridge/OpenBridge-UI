@@ -1,5 +1,7 @@
 import { GlobalContext } from "@/context/context";
+import { useNetwork } from "wagmi";
 export const ChainList = () => {
+    const { chains } = useNetwork()
     const {setIsModalShowing, setOriginChain} = GlobalContext()
     const Chains = [
         {
@@ -41,7 +43,7 @@ export const ChainList = () => {
             </div>
             <div className="w-[95%] ml-auto mr-auto h-auto  mb-4 py-4 px-4">
                 {
-                    Chains.map((chain, i) => (
+                    chains.map((chain, i) => (
                         <div key={i} className="w-[100%] h-14 ml-auto mr-auto">
                             <div onClick={() => setOriginChain(chain.name)} className="flex mt-1 mb-1 py-2 px-2 rounded-xl border cursor-pointer border-green-500">
                                 <img className="w-8 h-8 ml-5 mr-8" src={chain.logoUrl} alt={chain.native} />

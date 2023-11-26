@@ -95,7 +95,7 @@ export const Navbar = () => {
               ))}
             </div>
           </div>
-          <div className="w-[310px] ml-auto mr-0">
+          <div className="w-[390px] ml-auto mr-0">
             <ConnectButton.Custom>
               {({
                 account,
