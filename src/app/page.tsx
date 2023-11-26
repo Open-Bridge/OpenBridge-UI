@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import Wallet from "../components/Wallet";
 import { Navbar} from '@/components/Navbar'
@@ -8,12 +9,15 @@ import Transaction from '@/components/Transactions'
 import { GlobalContext } from '@/context/context'
 import { ChainList } from '@/components/Suspense/ChainList';
 export default function Home() {
-  
+  const { isModalShowing }  = GlobalContext();
   const router = ''
-  //console.log(openChainModal)
+  console.log(isModalShowing)
   return (
-    <div className='w-100% h-auto '>
+    <div className='w-100% h-auto flex flex-col'>
       <Navbar />
+      <div className=''>
+        {isModalShowing && <ChainList/>}
+      </div>
       <div className="w-[88%] pt-5 mt-0 mb-20 ml-auto mr-auto pl-[1.06rem] sm:pl-8 overflow-x-hidden">
       {/**<LatestPools />**/}
       

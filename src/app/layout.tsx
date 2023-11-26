@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import localFont from "next/font/local";
 import { Questrial } from "next/font/google";
 import { Inter } from 'next/font/google'
-//import { BridgeContextProvider } from '../context/context'
-import { BridgeContextProvider } from '@/context/context';
+import { BridgeContextProvider } from '../context/context'
+
 import EthProvider from '../provider'
 import './globals.css'
 
