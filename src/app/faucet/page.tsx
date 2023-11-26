@@ -7,7 +7,7 @@ import { TokenList } from '@/components/Suspense/TokenList'
 import { GlobalContext } from '@/context/context';
 import { Navbar} from '@/components/Navbar'
 import { TokenSelect } from '@/components/Transfer/TokenSelect';
-import { ChainSelect } from '@/components/Transfer/ChainSelector';
+//import { ChainSelect } from '@/components/Transfer/ChainSelector';
 //import { ChainSelector } from '@/components/Transfer/ChainSelector';
 import { AddressInput } from '@/components/Transfer/InputAddress'
 import React from 'react'
