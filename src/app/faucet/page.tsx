@@ -2,6 +2,7 @@
 // import Image from 'next/image'
 // import Wallet from "../components/Wallet";
 import { ChainList } from '@/components/Suspense/ChainList'
+import { OriginChainSelector } from '@/components/Transfer/OriginChainSelector';
 import { TokenList } from '@/components/Suspense/TokenList'
 import { GlobalContext } from '@/context/context';
 import { Navbar} from '@/components/Navbar'
@@ -37,7 +38,7 @@ export default function Home() {
                     <TokenSelect />
                 </div>
                 <div className='w-[45%] ml-auto mr-0'>
-                    <ChainSelect />
+                    <OriginChainSelector />
                 </div>
             </div>
             <div className='w-full mt-10'>
