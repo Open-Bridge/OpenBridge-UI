@@ -3,6 +3,10 @@
 // import Wallet from "../components/Wallet";
 //import { ChainSelector } from '@/components/Transfer/ChainSelector'
 //import { ChainSelect } from '@/components/Transfer/ChainSelector'
+import { NFTList } from '@/components/Suspense/NFTList'
+import { ChainList } from '@/components/Suspense/ChainList'
+import { DestList } from '@/components/Suspense/DestList'
+import { TokenList } from '@/components/Suspense/TokenList'
 import { MoreDetails } from '@/components/Transfer/Details'
 import { NFTSelect } from '@/components/Transfer/NFTSelect'
 import { Navbar } from '@/components/Navbar'
@@ -16,6 +20,7 @@ export default function Home() {
   const [user, setUser] = React.useState("");
   const [chain, setChain] = React.useState("");
   const { chainSelect }: any = GlobalContext();
+  const { isModalShowing,isTokenShowing, isModal2Showing, expandDetails, isNFTList } = GlobalContext();
   const claimToken = () => {
     console.log({ user, token, chain });
     console.log(chainSelect)
@@ -24,8 +29,12 @@ export default function Home() {
   return (
     <div className='w-100%  flex'>
       <Navbar />
+      {isModal2Showing && <DestList/>}
+      {isModalShowing && <ChainList/>}
+      {isTokenShowing && <TokenList/>}
+      {isNFTList && <NFTList/>}
       <div className="w-[85%] h-[110vh]  mt-8 flex justify-center items-center pt-5 mb-20 ml-auto mr-auto ">
-        <div className=' w-[42%] h-[95vh] py-4 px-3 drop-shadow-glow  bg-black/80 rounded-3xl'>
+        <div className={` w-[42%] ${expandDetails ? 'h-[112vh]' : 'h-[95vh]'} py-6 px-4 px-3 drop-shadow-glow  bg-black/80 rounded-3xl`}>
           {/**main transfer header**/}
           <div className='text-white flex py-2 w-[93%] ml-auto mr-auto h-12'>
             <div className='ml-3 mr-auto py-1 px-1'>
