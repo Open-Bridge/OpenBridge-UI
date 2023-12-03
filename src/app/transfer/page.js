@@ -33,7 +33,7 @@ export default function Home() {
   const [chain, setChain] = React.useState(false);
   
   const chainId = '5790810961207155433';
-  const { address} = useAccount()
+  const { address, isConnected} = useAccount()
   const { isModalShowing,isTokenShowing, isSettingModal, setIsSettingModal, isModal2Showing, expandDetails , amount, faucetAddress,  isApproveModal,selectedToken,  setIsApproveModal } = GlobalContext();
   const claimToken = () => {
     console.log({ user, token, chain });
@@ -105,7 +105,7 @@ export default function Home() {
               <MoreDetails />
             </div>
             <div className='w-[100%] mt-8 flex'>
-              { open ? 
+              { isConnected ? 
                  <button onClick={() =>  {
                   
                   setIsApproveModal(true)
@@ -115,7 +115,6 @@ export default function Home() {
                 :
                 <button onClick={() =>  {
                   claimToken()
-                  setIsApproveModal(true)
                 }
                   } className='w-[100%] bg-green-500/70 h-12 rounded-xl cursor-pointer ml-auto mr-auto'>Connect Wallet
                 </button>
