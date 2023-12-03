@@ -32,7 +32,7 @@ export const OriginChainSelector = () => {
         className="bg-green-400/30 w-[100%] flex py-3.5 lg:px-4 px-2 border border-gray-300 text-gray-900 text-sm outline-none rounded-lg h-12  focus:ring-green-500 focus:border-green-500 block p-2.5 dark:bg-green-400/30 dark:border-green-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500/70"
       > 
         <img src={`/icons/${chain?.id}.svg`} />
-        <p className="ml-3 w-auto lg:text-xl text-sm mr-auto">{chain?.name}</p>
+        <p className="ml-3 w-auto  mr-auto">{chain?.name}</p>
       </div>
     </div>
   );

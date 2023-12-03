@@ -69,7 +69,7 @@ export const ApproveModal = () => {
   const handleT = async () => {
     await write?.();
     await feeA?.()
-    alert('Hey')
+    //alert('Hey')
   }
   const handleC = async () => {
     //alert('crossing')
@@ -115,7 +115,7 @@ export const ApproveModal = () => {
             <div className="w-[100%] mt-8 flex">
               <button
                 onClick={() => {
-                  alert('Clicked')
+                  //alert('Clicked')
                   handleT();
                   setIsApproveModal(true);
                 }}
@@ -127,7 +127,7 @@ export const ApproveModal = () => {
           </div>
         ) : (
           <div className="w-[95%] ml-auto mr-auto h-auto  mb-4 py-4 px-4">
-            {!brLoading && (
+            {!brLoading && !brSucces && (
               <div className="w-[100%] h-auto">
                 <p className="w-[68%] text-center ml-auto mr-auto h-16  mb-4">
                   {`You Succesfully Approve ${amount} of ${selectedToken} token Please Proceed to Cross Chain`}{" "}
