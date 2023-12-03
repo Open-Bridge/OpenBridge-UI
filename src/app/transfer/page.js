@@ -43,7 +43,7 @@ export default function Home() {
   const { data } = useBalance({
     address:address,
     token:faucetAddress,
-    chainId: chain.id,
+    chainId: chain?.id,
   })
   console.log(data?.formatted)
   
