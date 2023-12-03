@@ -1,8 +1,8 @@
 import { GlobalContext } from "@/context/context";
 import { useAccount } from 'wagmi'
-export const TokenSelect = () => {
+export const TokenBridged = () => {
 const { balance } = useAccount()
-const { setIsTokenShowing, selectedToken, selectedTokenLogo ,setAmount } = GlobalContext();
+const { setIsTokenShowing, selectedToken, selectedTokenLogo ,amount } = GlobalContext();
   
   return (
     <div>
@@ -12,10 +12,9 @@ const { setIsTokenShowing, selectedToken, selectedTokenLogo ,setAmount } = Globa
             <img className="ml-1 mr-2" src={selectedTokenLogo} />
             <p className="ml-1 mr-1">{selectedToken}</p>
           </div>
-          <img src="/icons/chevron-down.svg" />
         </div>
-        <div className="mr-1 ml-auto py-0.1 px-1">
-          <input onChange={(e) => setAmount(e.target.value)}  type="text" className="font-extralight outline-none  rounded-xl py-1 px-4 bg-transparent/10 w-20 text-sm"/>
+        <div className="mr-1 ml-auto py-0.5 px-1">
+          <p className="font-extralight text-lg">{amount}</p>
         </div>
       </div>
     </div>

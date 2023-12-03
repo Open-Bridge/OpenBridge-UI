@@ -1,50 +1,183 @@
-export const ChainList = () => {
-    const Chains = [
-        {
-          name: 'Optimism Goerli',
-          native : 'ETH',
-          logoUrl: 'https://goerli-optimism.etherscan.io/images/svg/brands/main.svg',
-          status: 'Active'
-        },
-        {
-          name: 'BNB Testnet',
-          native : 'BNB',
-          logoUrl: 'https://testnet.bscscan.com/assets/bsc/images/svg/logos/chain-light.svg',
-          status: 'Active'
-        },
-        {
-          name: 'Base Goerli',
-          native : 'ETH',
-          logoUrl: 'https://basescan.org/images/svg/brands/main.svg',
-          status: 'Active'
-        },
-        {
-          name: 'Polygon Mumbai',
-          native : 'Matic',
-          logoUrl: 'https://polygonscan.com/assets/poly/images/svg/logos/chain-light.svg',
-          status: 'Active'
-        },
-        
-      ]
-    return(
-    <div className="bg-black/80 w-[100%] absolute min-h-screen z-[9999999999]">
-        <div className=" w-[90%] h-auto py-3 px-3 drop-shadow-glow ml-auto mr-auto text-white  mt-[90px] bg-black/80 rounded-3xl flex flex-col  pt-5 mb-20 ">
-            <div className=" w-[95%] ml-auto mr-auto h-12 mb-4 py-4 px-4">
-                <p className="text-xl">Select Chain</p>
+import { GlobalContext } from "@/context/context";
+import { parseEther } from "viem";
+import { usePrepareContractWrite, useContractWrite, useAccount } from 'wagmi'
+import { BNM, Bridge, FeeToken } from "../../config/TokenData";
+import { bridger } from "../../config/add";
+export const ApproveModal = () => {
+  const { address} = useAccount()
+  const {
+    setIsTokenShowing,
+    destinationChainID,
+    setSelectedToken,
+    setFaucetAddress,
+    selectedToken,
+    amount,
+    faucetAddress,
+    setSelectedTokenLogo,
+    setIsApproveModal,
+  } = GlobalContext();
+  const getDestinationId = (destinationChainID) => {
+        if(destinationChainID === 84531) {
+          const BaseId = '16015286601757825753'
+          return BaseId;
+        }
+        if(destinationChainID === 11155111) {
+          const SepoliaId  = '16015286601757825753'
+          return SepoliaId;
+        }
+        if(destinationChainID === 80001) {
+          const MumbaiId = '12532609583862916517'
+          return MumbaiId;
+        }
+        return undefined
+  }
+  console.log(destinationChainID)
+  const feeAmount = 1200003003000000999998;
+  const { config } = usePrepareContractWrite({
+    address: faucetAddress,
+    abi: BNM.abi  ,
+    functionName:'approve' ,
+    args: [
+      bridger.address,
+      amount
+    ],
+  })
+  const { config:feeToken } = usePrepareContractWrite({
+    address: FeeToken.address,
+    abi: FeeToken.abi  ,
+    functionName:'approve' ,
+    args: [
+      bridger.address,
+      feeAmount
+    ],
+  })
+  const { config:bridge } = usePrepareContractWrite({
+    address: bridger.address,
+    abi: bridger.abi  ,
+    functionName:'transferTokensPayLINK' ,
+    args: [
+      getDestinationId(destinationChainID),
+      address,
+      faucetAddress,
+      amount
+    ] ,
+  })
+  const {data:feeD , write:feeA } = useContractWrite(feeToken)
+  const {data , isLoading:brLoading, isSuccess:brSucces, write:cross, isError:bridgeerror} = useContractWrite(bridge)
+  const {data:bnmdata , isError , write , isLoading:bnmLoading , error, isSuccess:bnmSuccess } = useContractWrite(config)
+  const handleT = async () => {
+    await write?.();
+    await feeA?.()
+    alert('Hey')
+  }
+  const handleC = async () => {
+    alert('crossing')
+    await cross?.()
+    alert('crossed')
+  }
+  const isF = true;
+  const isL = false;
+  const ntF = false;
+  console.log('e:',error)
+  return (
+    <div
+      id="modal"
+      className="bg-black/80 w-[100%] absolute h-[100%] z-[9999999999]"
+    >
+      <div className=" w-[30%] h-auto py-3 px-3 drop-shadow-glow ml-auto mr-auto text-white  mt-[140px] bg-black/80 rounded-3xl flex flex-col  pt-5 mb-20 ">
+        <div className=" w-[95%] ml-auto flex mr-auto h-12 mb-4 py-4 px-4">
+          <p className="text-xl ml-0 mr-auto">{`Transfer ${destinationChainID}`}</p>
+          <div className="text-xl mr-0 ml-auto">
+            <div
+              onClick={() => {
+                setIsApproveModal(false);
+              }}
+              className="w-8 h-8 py-1.5 px-1 hover:bg-green-400/60 cursor-pointer rounded-lg bg-green-400/30"
+            >
+              <img src="/icons/home-icon.svg" className="ml-auto mr-auto" />
             </div>
-            <div className="w-[95%] ml-auto mr-auto h-auto  mb-4 py-4 px-4">
-                {
-                    Chains.map((chain, i) => (
-                        <div key={i} className="w-[100%] h-14 ml-auto mr-auto">
-                            <div className="flex mt-2 mb-2 py-2 px-2 rounded-xl border border-green-500">
-                                <img className="w-8 h-8 ml-5 mr-8" src={chain.logoUrl} alt={chain.native} />
-                                <p className="py-1 px-1 font-semibold text-md">{chain.name}</p>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
+          </div>
         </div>
+        {!bnmSuccess ? (
+          <div className="w-[95%] ml-auto mr-auto h-auto  mb-4 py-4 px-4">
+            {!bnmLoading && (
+              <div className="w-[100%] h-20">
+                <p className="w-[68%] text-center ml-auto mr-auto h-16  mb-4">
+                  {`You need to Approve ${amount} of ${selectedToken} token with Link token which serves as the Router Fees to Cross Chain`}{" "}
+                </p>
+              </div>
+            )}
+            {bnmLoading && (
+              <div className="w-[100%] h-20">
+                <p className="w-[68%] text-center ml-auto mr-auto h-16  mb-4">
+                  {`Approving...`}{" "}
+                </p>
+              </div>
+            )}
+            <div className="w-[100%] mt-8 flex">
+              <button
+                onClick={() => {
+                  alert('Clicked')
+                  handleT();
+                  setIsApproveModal(true);
+                }}
+                className="w-[100%] bg-green-500/70 h-12 rounded-xl cursor-pointer ml-auto mr-auto"
+              >
+                {bnmLoading ? 'Loading...' : 'Approve'}
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="w-[95%] ml-auto mr-auto h-auto  mb-4 py-4 px-4">
+            {!brLoading && (
+              <div className="w-[100%] h-auto">
+                <p className="w-[68%] text-center ml-auto mr-auto h-16  mb-4">
+                  {`You Succesfully Approve ${amount} of ${selectedToken} token Please Proceed to Cross Chain`}{" "}
+                </p>
+              </div>
+            )}
+            {brLoading && (
+              <div className="w-[100%] h-auto">
+                <p className="w-[68%] text-center ml-auto mr-auto h-16  mb-4">
+                  {`Approving...`}{" "}
+                </p>
+              </div>
+            )}
+            {brSucces && (
+              <div className="w-[100%] h-auto">
+                <p className="w-[68%] text-center ml-auto mr-auto h-16  mb-4">
+                  {`Approving...`}{" "}
+                </p>
+              </div>
+            )}
+            <div className="w-[100%] mt-8 flex">
+              {
+                brSucces ? 
+                <button
+                onClick={() => {
+                  
+                  setIsApproveModal(false);
+                }}
+                className="w-[100%] bg-green-500/70 h-12 rounded-xl cursor-pointer ml-auto mr-auto"
+              >
+                {'Back to Home'}
+              </button> 
+              : 
+              <button
+                onClick={() => {
+                  alert('Cross');
+                  handleC()
+                  setIsApproveModal(true);
+                }}
+                className="w-[100%] bg-green-500/70 h-12 rounded-xl cursor-pointer ml-auto mr-auto"
+              >
+                {brLoading ? 'Loading' : 'Bridge'}
+              </button>
+              }
+            </div>
+          </div>
+        )}
+      </div>
     </div>
-    )
-}
+  );
+};

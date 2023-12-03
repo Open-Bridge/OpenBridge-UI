@@ -15,19 +15,19 @@ export const Navbar = () => {
 
   const Pages = [
     {
-      name: "Token Transfer",
+      name: "Token Bridge",
       url: "transfer",
       status: "Live",
     },
     {
-      name: "NFTs Bridge",
-      url: "nft",
-      status: "Live",
-    },
-        {
       name: "Faucet",
       url: "faucet",
       status: "Live",
+    },
+    {
+      name: "CCIP Explorer",
+      url: "",
+      status: "",
     },
     
   ];
