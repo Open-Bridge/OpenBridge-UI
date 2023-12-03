@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+
 import Wallet from "../components/Wallet";
 import { Navbar} from '@/components/Navbar'
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -8,9 +9,10 @@ import NewChains from '@/components/NewChains'
 import Transaction from '@/components/Transactions'
 import { GlobalContext } from '@/context/context'
 import { ChainList } from '@/components/Suspense/ChainList';
+import Link from 'next/link';
 export default function Home() {
   const { isModalShowing }  = GlobalContext();
-  const router = ''
+ 
   console.log(isModalShowing)
   return (
     <div className='w-100% h-auto flex flex-col'>
@@ -34,13 +36,18 @@ export default function Home() {
           Open<span className="text-green-500">Bridge</span> a fast and secured cross chain bridge for transfering crypto assets and NFTs accross EVM chains
         </p>
         <div className="flex justify-center items-center xl:justify-start">
+          <Link href={'/transfer'}>
           <button
-            //onClick={() => router.push("/launchpad/presale/create")}
+            
             className="mr-4 text-base outline-none rounded-3xl py-0  px-0 lg:w-48 w-[150px] h-12 bg-green-400 text-white"
           >
             Transfer
           </button>
-          <button className="text-base outline-none">Learn more</button>
+          </Link>
+          <Link href={'/faucet'}>
+            <button className="text-base outline-none">Faucet</button>
+          </Link>
+    
         </div>
       </div>
       {/* ------------------------------ */}

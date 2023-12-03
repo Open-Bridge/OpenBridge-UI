@@ -1,7 +1,7 @@
 'use client'
 // import Image from 'next/image'
 // import Wallet from "../components/Wallet";
-import { use } from 'wagmi'
+import { use, useNetwork } from 'wagmi'
 import { bridge } from '@/config/add'
 import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 import { formatEther } from 'viem'
@@ -30,7 +30,6 @@ import { toBigInt } from 'ethers'
 export default function Home() {
   const [token, setToken] = React.useState("");
   const [user, setUser] = React.useState(true);
-  const [chain, setChain] = React.useState(false);
   
   const chainId = '5790810961207155433';
   const { address, isConnected} = useAccount()
@@ -40,10 +39,11 @@ export default function Home() {
     console.log(isModalShowing)
     setChain(true)
   }
+  const { chain } = useNetwork()
   const { data } = useBalance({
     address:address,
     token:faucetAddress,
-    chainId: 420,
+    chainId: chain.id,
   })
   console.log(data?.formatted)
   
@@ -56,8 +56,8 @@ export default function Home() {
       {isModalShowing && <ChainList/>}
       {isTokenShowing && <TokenList/>}
       {isSettingModal && <SettingModal />}
-      <div className={ `w-[85%] h-[110vh]  mt-8 flex justify-center items-center pt-5 mb-20 ml-auto mr-auto `}>
-        <div className={` w-[42%] ${expandDetails ? 'h-[112vh]' : 'h-[95vh]'} py-6 px-4 px-3 drop-shadow-glow  bg-black/80 rounded-3xl`}>
+      <div className={ `w-[96%] lg:w-[85%] lg:h-[110vh] h-auto mt-20 lg:mt-8 flex justify-center items-center pt-5 mb-20 ml-auto mr-auto `}>
+        <div className={` w-[98%] lg:w-[42%] ${expandDetails ? 'h-[92vh] lg:h-[112vh]' : 'h-[78vh] lg:h-[95vh]'} py-6 px-4 px-3 drop-shadow-glow  bg-black/80 rounded-3xl`}>
           {/**main transfer header**/}
           <div className='text-white flex py-2 w-[93%] ml-auto mr-auto h-12'>
             <div className='ml-3 mr-auto py-1 px-1'>
@@ -70,7 +70,7 @@ export default function Home() {
             </div>
           </div>
           {/**main transfer card chain select**/}
-          <div className='text-white flex py-2 w-[95%] mt-10 ml-auto mr-auto h-12'>
+          <div className='text-white flex py-2 w-[98%] mt-10 ml-auto mr-auto h-12'>
             <div className='ml-0 mr-auto w-[45%] py-1 px-1 mb-4'>
               <p className='text-sm font-bold text-center mb-4'>Origin</p>
               <OriginChainSelector />

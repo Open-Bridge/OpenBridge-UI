@@ -47,10 +47,106 @@ export const Navbar = () => {
               </div>
             </Link>
           </div>
-          <div className="mr-2 ml-auto mt-auto mb-auto">
-            <div className="flex flex-row">
-              <p className="ml-2  mr-2"></p>
-            </div>
+          <div className="mr-auto ml-20 mt-auto mb-auto">
+          <div className="w-[250px] ml-auto mr-0">
+            <ConnectButton.Custom>
+              {({
+                account,
+                chain,
+                openAccountModal,
+                openChainModal,
+                openConnectModal,
+                authenticationStatus,
+              }) => {
+                const ready = authenticationStatus !== "loading";
+          const connected =
+            ready &&
+            account &&
+            chain &&
+            (!authenticationStatus || authenticationStatus === "authenticated");
+
+          return (
+            <div
+              {...(!ready && {
+                "aria-hidden": true,
+                style: {
+                  opacity: 0,
+                  pointerEvents: "none",
+                  userSelect: "none",
+                },
+              })}
+            >
+              {(() => {
+                if (!connected) {
+                  return (
+                    <button
+                      onClick={openConnectModal}
+                      type="button"
+                      className="rounded-[3.125rem]  p-[0.42rem] border-[0.5px] w-[9.38rem] h-10 bg-green-500 text-white border-[#424242]"
+                    >
+                      Connect Wallet
+                    </button>
+                  );
+                }
+
+                if (chain.unsupported) {
+                  return (
+                    <button
+                      onClick={openChainModal}
+                      type="button"
+                      className="rounded-[3.125rem] p-[0.62rem] border-[0.5px] w-fit h-10 bg-[#9e2f2f] text-white border-[#424242]"
+                    >
+                      Wrong network
+                    </button>
+                  );
+                }
+
+                return (
+                  <div style={{ display: "flex", gap: 12 }}>
+                    <button
+                      onClick={openChainModal}
+                      style={{ display: "flex", alignItems: "center" }}
+                      type="button"
+                      className="bg-[#28282B] text-white  px-0.5 py-0.5 w-10 h-10 border-[0.5px] rounded-full border-green-400/70 flex items-center "
+                    >
+                      {chain.hasIcon && (
+                        <div
+                          className="w-auto h-auto xl:w-7 xl:h-7"
+                          style={{
+                            background: chain.iconBackground,
+                            borderRadius: 999,
+                            overflow: "hidden",
+                            marginRight: 4,
+                          }}
+                        >
+                          {chain.iconUrl && (
+                            <img
+                              alt={chain.name ?? "Chain icon"}
+                              height={5}
+                              width={5}
+                              src={chain.iconUrl}
+                              className="w-auto h-auto xl:w-7 xl:h-7"
+                            />
+                          )}
+                        </div>
+                      )}
+                      
+                    </button>
+
+                    <button
+                      onClick={openAccountModal}
+                      type="button"
+                      className="bg-[#28282B] text-white p-[0.625rem] px-4 border-[0.5px] h-10 w-32 rounded-[3.125rem] border-green-400/60 flex items-center gap-[0.62rem]"
+                    >
+                      {account.displayName}
+                    </button>
+                  </div>
+                );
+              })()}
+            </div>)
+              }}
+            </ConnectButton.Custom>
+          </div>
           </div>
         </div>
         {show && "Hello"}

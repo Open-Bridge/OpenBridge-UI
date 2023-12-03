@@ -16,9 +16,10 @@ export const ApproveModal = () => {
     setSelectedTokenLogo,
     setIsApproveModal,
   } = GlobalContext();
+  
   const getDestinationId = (destinationChainID) => {
         if(destinationChainID === 84531) {
-          const BaseId = '16015286601757825753'
+          const BaseId = '5790810961207155433'
           return BaseId;
         }
         if(destinationChainID === 11155111) {
@@ -31,8 +32,8 @@ export const ApproveModal = () => {
         }
         return undefined
   }
-  console.log(destinationChainID)
-  const feeAmount = 1200003003000000999998;
+  console.log(getDestinationId(84531))
+  const feeAmount = 500000000000000000;
   const { config } = usePrepareContractWrite({
     address: faucetAddress,
     abi: BNM.abi  ,
@@ -71,22 +72,19 @@ export const ApproveModal = () => {
     alert('Hey')
   }
   const handleC = async () => {
-    alert('crossing')
+    //alert('crossing')
     await cross?.()
-    alert('crossed')
+    //alert('crossed')
   }
-  const isF = true;
-  const isL = false;
-  const ntF = false;
-  console.log('e:',error)
+
   return (
     <div
       id="modal"
       className="bg-black/80 w-[100%] absolute h-[100%] z-[9999999999]"
     >
-      <div className=" w-[30%] h-auto py-3 px-3 drop-shadow-glow ml-auto mr-auto text-white  mt-[140px] bg-black/80 rounded-3xl flex flex-col  pt-5 mb-20 ">
+      <div className="w-[90%] lg:w-[30%] h-auto py-3 px-3 drop-shadow-glow ml-auto mr-auto text-white  mt-[140px] bg-black/80 rounded-3xl flex flex-col  pt-5 mb-20 ">
         <div className=" w-[95%] ml-auto flex mr-auto h-12 mb-4 py-4 px-4">
-          <p className="text-xl ml-0 mr-auto">{`Transfer ${destinationChainID}`}</p>
+          <p className="text-xl ml-0 mr-auto">{`Transfer`}</p>
           <div className="text-xl mr-0 ml-auto">
             <div
               onClick={() => {
@@ -146,7 +144,7 @@ export const ApproveModal = () => {
             {brSucces && (
               <div className="w-[100%] h-auto">
                 <p className="w-[68%] text-center ml-auto mr-auto h-16  mb-4">
-                  {`Approving...`}{" "}
+                  {`Done`}{" "}
                 </p>
               </div>
             )}
