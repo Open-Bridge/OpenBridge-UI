@@ -16,13 +16,7 @@ export const DestinationChainSelector = () => {
       id: 420,
     },
   ];
-  const selected = () => {
-    return (
-      <div className="w-70% bg-green-400/30 z-10 focus:ring-green-500 focus:border-green-500 block w-[99%] p-2.5 dark:bg-green-400/30 dark:border-green-500">
-        <div>hey</div>
-      </div>
-    );
-  };
+ 
   return (
     <div>
       <div
