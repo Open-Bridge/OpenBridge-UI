@@ -56,7 +56,7 @@ export default function Home() {
       {isModalShowing && <ChainList/>}
       {isTokenShowing && <TokenList/>}
       {isSettingModal && <SettingModal />}
-      <div className={ `w-[96%] lg:w-[85%] lg:h-[110vh] h-auto mt-20 lg:mt-8 flex justify-center items-center pt-5 mb-20 ml-auto mr-auto `}>
+      <div className={ `w-[96%] lg:w-[85%] lg:h-[110vh] h-[95vh] mt-20 lg:mt-8 flex justify-center items-center pt-5 mb-20 ml-auto mr-auto `}>
         <div className={` w-[98%] lg:w-[42%] ${expandDetails ? 'h-[92vh] lg:h-[112vh]' : 'h-[78vh] lg:h-[95vh]'} py-6 px-4 px-3 drop-shadow-glow  bg-black/80 rounded-3xl`}>
           {/**main transfer header**/}
           <div className='text-white flex py-2 w-[93%] ml-auto mr-auto h-12'>

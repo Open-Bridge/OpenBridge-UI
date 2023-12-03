@@ -45,12 +45,12 @@ export default function Home() {
     const { data, isLoading, isSuccess, write } = useContractWrite(config)
 
     return (
-        <div className='w-100% flex '>
+        <div className='w-100% flex sm:h-[100%]'>
             <Navbar />
             {isModalShowing && <ChainList />}
             {isTokenShowing && <TokenList />}
             {isSuccess1 && <SuccessModal />}
-            <div className="w-[96%] lg:w-[40%] lg:h-[55vh] h-[45vh] py-2 px-2 drop-shadow-glow ml-auto mr-auto mt-[210px] lg:mt-[150px] bg-black/80 rounded-3xl flex  pt-5 mb-20 ">
+            <div className="w-[96%] lg:w-[40%] lg:h-[55vh] h-[50vh] py-2 px-2 drop-shadow-glow ml-auto mr-auto mt-[210px] lg:mt-[150px] bg-black/80 rounded-3xl flex  pt-5 mb-20 ">
                 <div className=" text-white h-auto ml-auto mr-auto flex flex-wrap justify-center items-center text-center py-2 px-6">
                     <p className='mb-8 text-3xl'>Token Faucet</p>
 
