@@ -1,4 +1,5 @@
 import { GlobalContext } from "@/context/context";
+import { MdOutlineCancel } from "react-icons/md";
 export const SettingModal = () => {
 
     const { setIsTokenShowing, setSelectedToken, setFaucetAddress, setSelectedTokenLogo, setIsSettingModal } = GlobalContext()
@@ -12,7 +13,7 @@ export const SettingModal = () => {
                 <div className="text-xl mr-0 ml-auto">
                 <div onClick={() => 
                   setIsSettingModal(false)} className='w-8 h-8 py-1.5 px-1 hover:bg-green-400/60 cursor-pointer rounded-lg bg-green-400/30'>
-                <img src='/icons/home-icon.svg' className='ml-auto mr-auto' />
+                <MdOutlineCancel className='ml-auto mr-auto' />
                 </div>
                 </div>
             </div>

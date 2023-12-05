@@ -1,8 +1,11 @@
 import { GlobalContext } from "@/context/context";
-import { parseEther } from "viem";
+import { parseEther } from "viem"; 
+import { useNetwork } from 'wagmi'
+import { CircleLoader } from "react-spinners";
+import { MdOutlineCancel } from "react-icons/md";
 import { usePrepareContractWrite, useContractWrite, useAccount } from 'wagmi'
 import { BNM, Bridge, FeeToken } from "../../config/TokenData";
-import { bridger } from "../../config/add";
+import { Opbridge, Basebridge, fujibridge, Sepoliabridge, OpLink, SepoliaLink, FujiLink, BaseLink } from "../../config/add";
 export const ApproveModal = () => {
   const { address} = useAccount()
   const {
@@ -17,6 +20,47 @@ export const ApproveModal = () => {
     setIsApproveModal,
   } = GlobalContext();
   
+  const { chain } = useNetwork()
+  const activeChainId = chain?.id
+  const getBridgeAddress = (activeChainId) => {
+    if (activeChainId === 420) {
+      const OpAddress = Opbridge.address;
+      return OpAddress;
+    }
+    if (activeChainId === 84531) {
+      const BaseAddress = Basebridge.address;
+      return BaseAddress;
+    }
+    if (activeChainId === 11155111) {
+      const SepoliaAddress = Sepoliabridge.address;
+      return SepoliaAddress;
+    }
+    if (activeChainId === 43113) {
+      const fujiAddress = fujibridge.address;
+      return fujiAddress;
+    }
+  }
+
+  const getLinkAddress = (activeChainId) => {
+    
+    if (activeChainId === 420) {
+      const OpLinkAddress = OpLink.address;
+      return OpLinkAddress;
+    }
+    if (activeChainId === 84531) {
+      const BaseLinkAddress = BaseLink.address;
+      return BaseLinkAddress;
+    }
+    if (activeChainId === 11155111) {
+      const SepoliaLinkAddress = SepoliaLink.address;
+      return SepoliaLinkAddress;
+    }
+    if (activeChainId === 43113) {
+      const fujiLinkAddress = FujiLink.address;
+      return fujiLinkAddress;
+    }
+  }
+
   const getDestinationId = (destinationChainID) => {
         if(destinationChainID === 84531) {
           const BaseId = '5790810961207155433'
@@ -26,35 +70,39 @@ export const ApproveModal = () => {
           const SepoliaId  = '16015286601757825753'
           return SepoliaId;
         }
-        if(destinationChainID === 80001) {
-          const MumbaiId = '12532609583862916517'
+        if(destinationChainID === 43113) {
+          const MumbaiId = '14767482510784806043'
+          return MumbaiId;
+        }
+        if(destinationChainID === 420) {
+          const MumbaiId = '2664363617261496610'
           return MumbaiId;
         }
         return undefined
   }
   console.log(getDestinationId(84531))
-  const feeAmount = 500000000000000000;
+  const feeAmount = 1500000000000000000;
   const { config } = usePrepareContractWrite({
     address: faucetAddress,
     abi: BNM.abi  ,
     functionName:'approve' ,
     args: [
-      bridger.address,
+      getBridgeAddress(activeChainId),
       amount
     ],
   })
   const { config:feeToken } = usePrepareContractWrite({
-    address: FeeToken.address,
+    address: getLinkAddress(activeChainId),
     abi: FeeToken.abi  ,
     functionName:'approve' ,
     args: [
-      bridger.address,
+      getBridgeAddress(activeChainId),
       feeAmount
     ],
   })
   const { config:bridge } = usePrepareContractWrite({
-    address: bridger.address,
-    abi: bridger.abi  ,
+    address: getBridgeAddress(activeChainId),
+    abi: Opbridge.abi  ,
     functionName:'transferTokensPayLINK' ,
     args: [
       getDestinationId(destinationChainID),
@@ -67,14 +115,11 @@ export const ApproveModal = () => {
   const {data , isLoading:brLoading, isSuccess:brSucces, write:cross, isError:bridgeerror} = useContractWrite(bridge)
   const {data:bnmdata , isError , write , isLoading:bnmLoading , error, isSuccess:bnmSuccess } = useContractWrite(config)
   const handleT = async () => {
+    await feeA?.();
     await write?.();
-    await feeA?.()
-    //alert('Hey')
   }
   const handleC = async () => {
-    //alert('crossing')
     await cross?.()
-    //alert('crossed')
   }
 
   return (
@@ -92,7 +137,7 @@ export const ApproveModal = () => {
               }}
               className="w-8 h-8 py-1.5 px-1 hover:bg-green-400/60 cursor-pointer rounded-lg bg-green-400/30"
             >
-              <img src="/icons/home-icon.svg" className="ml-auto mr-auto" />
+              <MdOutlineCancel className="ml-auto mr-auto" />
             </div>
           </div>
         </div>
@@ -108,7 +153,7 @@ export const ApproveModal = () => {
             {bnmLoading && (
               <div className="w-[100%] h-20">
                 <p className="w-[68%] text-center ml-auto mr-auto h-16  mb-4">
-                  {`Approving...`}{" "}
+                 <CircleLoader className="ml-auto mr-auto mt-1" color="#36d7b7" />
                 </p>
               </div>
             )}
@@ -121,7 +166,7 @@ export const ApproveModal = () => {
                 }}
                 className="w-[100%] bg-green-500/70 h-12 rounded-xl cursor-pointer ml-auto mr-auto"
               >
-                {bnmLoading ? 'Loading...' : 'Approve'}
+                {bnmLoading ? 'Approving...' : 'Approve'}
               </button>
             </div>
           </div>
@@ -137,7 +182,7 @@ export const ApproveModal = () => {
             {brLoading && (
               <div className="w-[100%] h-auto">
                 <p className="w-[68%] text-center ml-auto mr-auto h-16  mb-4">
-                  {`Approving...`}{" "}
+                  <CircleLoader className="ml-auto m-auto mt-1" color="#36d7b7" />
                 </p>
               </div>
             )}
@@ -169,7 +214,7 @@ export const ApproveModal = () => {
                 }}
                 className="w-[100%] bg-green-500/70 h-12 rounded-xl cursor-pointer ml-auto mr-auto"
               >
-                {brLoading ? 'Loading' : 'Bridge'}
+                {brLoading ? 'Bridging...' : 'Bridge'}
               </button>
               }
             </div>

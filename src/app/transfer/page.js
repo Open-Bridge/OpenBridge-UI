@@ -6,6 +6,7 @@ import { bridge } from '@/config/add'
 import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 import { formatEther } from 'viem'
 import { useAccount, useBalance } from 'wagmi'
+import { IoChevronDownCircleOutline ,IoChevronUpCircleOutline, IoSettingsOutline } from "react-icons/io5"
 import { OriginChainSelector } from '@/components/Transfer/OriginChainSelector'
 import { DestinationChainSelector } from '@/components/Transfer/DestinationChainSelector'
 import { ChainList } from '@/components/Suspense/ChainList'
@@ -65,7 +66,7 @@ export default function Home() {
             </div>
             <div className='ml-auto mr-3'>
               <div onClick={() => setIsSettingModal(true)} className='w-8 h-8 py-1.5 px-1 hover:bg-green-400/60 cursor-pointer rounded-lg bg-green-400/30'>
-                <img src='/icons/verify.svg' className='ml-auto mr-auto' />
+                <IoSettingsOutline className='ml-auto mr-auto mt-0.5' />
               </div>
             </div>
           </div>

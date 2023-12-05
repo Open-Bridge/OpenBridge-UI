@@ -1,5 +1,6 @@
 import { GlobalContext } from "@/context/context";
 import { useNetwork, useAccount } from "wagmi";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 export const MoreDetails = () => {
   const { chain } = useNetwork()
@@ -22,9 +23,9 @@ export const MoreDetails = () => {
             className="mr-1 ml-auto py-1 px-1"
           >
             {expandDetails ? (
-              <img src="/icons/rocket.svg" />
+              <FaChevronUp />
             ) : (
-              <img src="/icons/chevron-down.svg" />
+              <FaChevronDown />
             )}
           </div>
         </div>
