@@ -9,8 +9,7 @@ import {
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
   sepolia,
-  polygonMumbai,
-  bscTestnet,
+  avalancheFuji,
   baseGoerli,
   optimismGoerli,
 } from 'wagmi/chains';
@@ -18,7 +17,7 @@ import {
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 const { chains, publicClient } = configureChains(
-  [sepolia, baseGoerli, optimismGoerli, polygonMumbai ],
+  [sepolia, baseGoerli, optimismGoerli, avalancheFuji ],
   [
     //alchemyProvider({ apiKey: process.env.ALCHEMY_ID }),
     publicProvider()

@@ -1,5 +1,5 @@
-export const bridger = {
-    address: '0x71f7a70Cd643A888c8E4392F2Ae5c116deadF07b',
+export const Opbridge = {
+    address: '0x842012F0e5D91a476e09dB8885302AaEF888529B',
     abi: [
         {
             "inputs": [],
@@ -331,4 +331,32 @@ export const bridger = {
             "type": "function"
         }
     ]
+}
+
+export const Basebridge = {
+    address: '0xeB30addE70E9FFcA453Fc12B217C006B82215a6B',
+}
+
+export const fujibridge = {
+    address: '',
+}
+
+export const Sepoliabridge = {
+    address: '0x89928a2B94ED579d4a018C603226F1c054272D97',
+}
+
+export const OpLink = {
+    address: '0xdc2CC710e42857672E7907CF474a69B63B93089f',
+}
+
+export const SepoliaLink = {
+    address: '0x779877A7B0D9E8603169DdbD7836e478b4624789',
+}
+
+export const FujiLink = {
+    address: '0x0b9d5D9136855f6FEc3c0993feE6E9CE8a297846',
+}
+
+export const BaseLink = {
+    address: '0xd886e2286fd1073df82462ea1822119600af80b6',
 }

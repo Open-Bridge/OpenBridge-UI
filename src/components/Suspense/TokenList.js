@@ -1,22 +1,38 @@
 import { GlobalContext } from "@/context/context";
+import { MdOutlineCancel } from "react-icons/md";
 export const TokenList = () => {
 
     const { setIsTokenShowing, setSelectedToken, setFaucetAddress, setSelectedTokenLogo } = GlobalContext()
     const Chains = [
         {
           name: 'CCIP BNM',
-          native : 'BNM',
+          native : 'OP BNM',
           address: '0xaBfE9D11A2f1D61990D1d253EC98B5Da00304F16',
           logoUrl: 'https://goerli-optimism.etherscan.io/images/svg/brands/main.svg',
           status: 'Active'
         },
         {
-          name: 'CCIP LNM',
-          native : 'LNM',
-          address: '0x835833d556299cdec623e7980e7369145b037591',
-          logoUrl: 'https://testnet.bscscan.com/assets/bsc/images/svg/logos/chain-light.svg',
+          name: 'CCIP BNM',
+          native : 'Base BNM',
+          address: '0xbf9036529123de264bfa0fc7362fe25b650d4b16',
+          logoUrl: 'https://goerli.basescan.org/images/svg/brands/main.svg',
           status: 'Active'
-        }
+        },
+        {
+          name: 'CCIP BNM',
+          native : 'Fuji BNM',
+          address: '0xD21341536c5cF5EB1bcb58f6723cE26e8D8E90e4',
+          logoUrl: 'https://images.ctfassets.net/gcj8jwzm6086/5VHupNKwnDYJvqMENeV7iJ/3e4b8ff10b69bfa31e70080a4b142cd0/avalanche-avax-logo.svg',
+          status: 'Active'
+        },
+        {
+          name: 'CCIP BNM',
+          native : 'Sepolia BNM',
+          address: '0xFd57b4ddBf88a4e07fF4e34C487b99af2Fe82a05',
+          logoUrl: 'https://sepolia.etherscan.io/images/svg/brands/ethereum-original.svg',
+          status: 'Active'
+        },
+        
       ]
     return(
     <div id="modal" className="bg-black/80 w-[100%] absolute h-[100%] z-[9999999999]">
@@ -29,7 +45,7 @@ export const TokenList = () => {
                   
                 }
                   } className='w-8 h-8 py-1.5 px-1 hover:bg-green-400/60 cursor-pointer rounded-lg bg-green-400/30'>
-                <img src='/icons/home-icon.svg' className='ml-auto mr-auto' />
+                <MdOutlineCancel className='ml-auto mr-auto' />
                 </div>
                 </div>
             </div>
