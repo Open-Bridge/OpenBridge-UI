@@ -1,5 +1,6 @@
 import { GlobalContext } from "@/context/context";
-import { parseEther } from "viem"; 
+import { Link } from "next/link";
+import { parseUnits } from "viem"; 
 import { useNetwork } from 'wagmi'
 import { CircleLoader } from "react-spinners";
 import { MdOutlineCancel } from "react-icons/md";
@@ -88,7 +89,7 @@ export const ApproveModal = () => {
     functionName:'approve' ,
     args: [
       getBridgeAddress(activeChainId),
-      amount
+      parseUnits(amount, 18)
     ],
   })
   const { config:feeToken } = usePrepareContractWrite({
@@ -108,18 +109,26 @@ export const ApproveModal = () => {
       getDestinationId(destinationChainID),
       address,
       faucetAddress,
-      amount
+      parseUnits(amount, 18)
     ] ,
   })
   const {data:feeD , write:feeA } = useContractWrite(feeToken)
   const {data , isLoading:brLoading, isSuccess:brSucces, write:cross, isError:bridgeerror} = useContractWrite(bridge)
   const {data:bnmdata , isError , write , isLoading:bnmLoading , error, isSuccess:bnmSuccess } = useContractWrite(config)
   const handleT = async () => {
-    await feeA?.();
-    await write?.();
+    try {
+      await feeA?.();
+      await write?.();
+    } catch (error) {
+      console.log(error)
+    }
   }
   const handleC = async () => {
-    await cross?.()
+    try {
+      await cross?.()
+    } catch (error) {
+      alert('error:', error)
+    }
   }
 
   return (
@@ -127,7 +136,7 @@ export const ApproveModal = () => {
       id="modal"
       className="bg-black/80 w-[100%] absolute h-[100%] z-[9999999999]"
     >
-      <div className="w-[90%] lg:w-[30%] h-auto py-3 px-3 drop-shadow-glow ml-auto mr-auto text-white  mt-[140px] bg-black/80 rounded-3xl flex flex-col  pt-5 mb-20 ">
+      <div className="w-[90%] lg:w-[30%] h-auto py-3 px-3 drop-shadow-glow ml-auto mr-auto text-white  mt-[240px] bg-black/80 rounded-3xl flex flex-col  pt-5 mb-20 ">
         <div className=" w-[95%] ml-auto flex mr-auto h-12 mb-4 py-4 px-4">
           <p className="text-xl ml-0 mr-auto">{`Transfer`}</p>
           <div className="text-xl mr-0 ml-auto">
@@ -160,9 +169,12 @@ export const ApproveModal = () => {
             <div className="w-[100%] mt-8 flex">
               <button
                 onClick={() => {
-                  //alert('Clicked')
-                  handleT();
-                  setIsApproveModal(true);
+                 try {
+                   handleT();
+                   setIsApproveModal(true);
+                 } catch (error) {
+                  console.log(error)
+                 }
                 }}
                 className="w-[100%] bg-green-500/70 h-12 rounded-xl cursor-pointer ml-auto mr-auto"
               >
@@ -187,10 +199,17 @@ export const ApproveModal = () => {
               </div>
             )}
             {brSucces && (
-              <div className="w-[100%] h-auto">
-                <p className="w-[68%] text-center ml-auto mr-auto h-16  mb-4">
-                  {`Done`}{" "}
-                </p>
+              <div className="w-[100%] h-auto mb-3">
+                <div className="w-[68%] text-center ml-auto mr-auto h-16  mb-8">
+                        <div className='w-[100%] ml-auto mr-0'>
+                            <div className='h-[4rem] w-[4rem] ml-auto mr-auto'>
+                                <img src='/assets/ch1.png' />
+                            </div>
+                        </div>
+                        <div className="mt-2 text-sm lg:text-md mb-5 font-extralight">
+                           View on <a className="font-bold mb-5 text-sm" target="_blank" href={`https://ccip.chain.link/address/${getBridgeAddress(activeChainId)}`} >Explorer</a>
+                        </div>
+                </div>
               </div>
             )}
             <div className="w-[100%] mt-8 flex">
@@ -198,7 +217,6 @@ export const ApproveModal = () => {
                 brSucces ? 
                 <button
                 onClick={() => {
-                  
                   setIsApproveModal(false);
                 }}
                 className="w-[100%] bg-green-500/70 h-12 rounded-xl cursor-pointer ml-auto mr-auto"
@@ -208,9 +226,11 @@ export const ApproveModal = () => {
               : 
               <button
                 onClick={() => {
-                  alert('Cross');
-                  handleC()
-                  setIsApproveModal(true);
+                  try {
+                    handleC()
+                  } catch (error) {
+                    console.table(error)
+                  }
                 }}
                 className="w-[100%] bg-green-500/70 h-12 rounded-xl cursor-pointer ml-auto mr-auto"
               >
