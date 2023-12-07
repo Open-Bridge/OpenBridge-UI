@@ -358,5 +358,5 @@ export const FujiLink = {
 }
 
 export const BaseLink = {
-    address: '0xd886e2286fd1073df82462ea1822119600af80b6',
+    address: '0x6D0F8D488B669aa9BA2D0f0b7B75a88bf5051CD3',
 }
