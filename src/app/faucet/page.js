@@ -51,9 +51,19 @@ export default function Home() {
             {isTokenShowing && <TokenList />}
             {isSuccess1 && <SuccessModal />}
             <div className="w-[96%] lg:w-[40%] lg:h-[55vh] h-[50vh] py-2 px-2 drop-shadow-glow ml-auto mr-auto mt-[210px] lg:mt-[150px] bg-black/80 rounded-3xl flex  pt-5 mb-20 ">
+                { 
                 <div className=" text-white h-auto ml-auto mr-auto flex flex-wrap justify-center items-center text-center py-2 px-6">
-                    <p className='mb-8 text-3xl'>Token Faucet</p>
-
+                    <p className='mb-5 text-3xl'>Token Faucet</p>
+                    { 
+                    isSuccess ? 
+                    <div className='w-full  ml-auto mr-auto flex'>
+                        <div className='w-[100%] ml-auto mr-0'>
+                            <div className='h-[12rem] w-[12rem] ml-auto mr-auto'>
+                                <img src='/assets/ch1.png' />
+                            </div>
+                        </div>
+                    </div>
+                    :
                     <div className='w-full  ml-auto mr-auto flex'>
                         <div className='w-[45%] mr-auto ml-0'>
                             <FauceToken />
@@ -62,6 +72,8 @@ export default function Home() {
                             <FaucetSelector />
                         </div>
                     </div>
+                    }
+                    
                     {/**<div className='w-full mt-8'>
                         <AddressInput />
     </div>**/}
@@ -70,12 +82,12 @@ export default function Home() {
                             onClick={() => write?.()}
                             className="ext-base outline-none rounded-xl w-full h-12 bg-green-400 text-white"
                         >
-                            {'Check'}
+                            {'Back to Home'}
                         </button>
                         :
                         <button
                             onClick={() => {
-                                alert('Claimed') 
+                                //alert('Claimed') 
                                 write?.() 
 
                             }
@@ -85,7 +97,8 @@ export default function Home() {
                             {isLoading ? 'Driping...' : 'Drip'}
                         </button>
                     }
-                </div>
+                </div> 
+                }
 
             </div>
         </div>
