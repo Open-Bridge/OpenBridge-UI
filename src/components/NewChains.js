@@ -14,9 +14,9 @@ export default function NewChains() {
         status: 'Active'
       },
       {
-        name: 'BNB Testnet',
-        native : 'BNB',
-        logoUrl: 'https://testnet.bscscan.com/assets/bsc/images/svg/logos/chain-light.svg',
+        name: 'Sepolia',
+        native : 'ETH',
+        logoUrl: 'https://sepolia.etherscan.io/images/svg/brands/ethereum-original.svg',
         status: 'Active'
       },
       {
@@ -26,9 +26,9 @@ export default function NewChains() {
         status: 'Active'
       },
       {
-        name: 'Polygon Mumbai',
-        native : 'Matic',
-        logoUrl: 'https://polygonscan.com/assets/poly/images/svg/logos/chain-light.svg',
+        name: 'Avalanche Fuji',
+        native : 'AVAX',
+        logoUrl: 'https://images.ctfassets.net/gcj8jwzm6086/5VHupNKwnDYJvqMENeV7iJ/fdd6326b7a82c8388e4ee9d4be7062d4/avalanche-avax-logo.svg',
         status: 'Active'
       },
       

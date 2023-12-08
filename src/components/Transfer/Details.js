@@ -79,7 +79,7 @@ export const MoreDetails = () => {
               onClick={() => setExpandDetails(!expandDetails)}
               className="mr-1 ml-auto py-1 px-1"
             >
-              {`$- ${0.033}`}
+              {`$Link- ${0.2} `}
             </div>
           </div>
         </div>

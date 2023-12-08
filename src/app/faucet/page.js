@@ -58,7 +58,7 @@ export default function Home() {
                     isSuccess ? 
                     <div className='w-full  ml-auto mr-auto flex'>
                         <div className='w-[100%] ml-auto mr-0'>
-                            <div className='h-[12rem] w-[12rem] ml-auto mr-auto'>
+                            <div className='h-[8rem] w-[8rem] ml-auto mr-auto'>
                                 <img src='/assets/ch1.png' />
                             </div>
                         </div>
@@ -78,12 +78,12 @@ export default function Home() {
                         <AddressInput />
     </div>**/}
                     {isSuccess ?
-                        <button
-                            onClick={() => write?.()}
-                            className="ext-base outline-none rounded-xl w-full h-12 bg-green-400 text-white"
+                        <div
+                            
+                            className="ext-base hidden outline-none rounded-xl w-full h-12 bg-green-400 text-white"
                         >
-                            {'Back to Home'}
-                        </button>
+                            
+                        </div>
                         :
                         <button
                             onClick={() => {

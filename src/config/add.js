@@ -334,11 +334,11 @@ export const Opbridge = {
 }
 
 export const Basebridge = {
-    address: '0xeB30addE70E9FFcA453Fc12B217C006B82215a6B',
+    address: '0x2C0072F197da1C0Fab71d23B0a9236180e17E5EE',
 }
 
 export const fujibridge = {
-    address: '',
+    address: '0x0b9e480696d354Fc4103f9a8D62D2d9e2672A152',
 }
 
 export const Sepoliabridge = {
