@@ -2,6 +2,7 @@
 // import Image from 'next/image'
 // import Wallet from "../components/Wallet";
 import { use, useNetwork } from 'wagmi'
+import { Footer } from '@/components/Footer'
 import { bridge } from '@/config/add'
 import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 import { formatEther } from 'viem'
@@ -50,20 +51,20 @@ export default function Home() {
   
   //const  chainSelect  = GlobalContext();
   return (
-    <div className='w-100%  flex'>
+    <div className='w-100%  flex flex-col'>
       <Navbar />
       {isApproveModal && <ApproveModal />}
       {isModal2Showing && <DestList/>}
       {isModalShowing && <ChainList/>}
       {isTokenShowing && <TokenList/>}
       {isSettingModal && <SettingModal />}
-      <div className={ `w-[96%] lg:w-[85%] lg:h-[115vh] h-[100vh] mt-20 lg:mt-8 flex justify-center items-center pt-5 mb-20 ml-auto mr-auto `}>
+      <div className={ `w-[96%] lg:w-[85%] lg:h-[115vh] h-[100vh] mt-20 lg:mt-8 flex justify-center mb-10 items-center pt-5 ml-auto mr-auto `}>
         <div className={` w-[98%] lg:w-[42%] ${expandDetails ? 'h-[815px] lg:h-[112vh]' : 'h-[690px] lg:h-[95vh]'} py-6 px-4 px-3 drop-shadow-glow  bg-black/80 rounded-3xl`}>
           {/**main transfer header**/}
           <div className='text-white flex py-2 w-[93%] ml-auto mr-auto h-12'>
             <div className='ml-3 mr-auto py-1 px-1'>
               <p className='text-xl font-extralight'>Bridge</p>
-            </div>
+            </div> 
             <div className='ml-auto mr-3'>
               <div onClick={() => setIsSettingModal(true)} className='w-8 h-8 py-1.5 px-1 hover:bg-green-400/60 cursor-pointer rounded-lg bg-green-400/30'>
                 <IoSettingsOutline className='ml-auto mr-auto mt-0.5' />
@@ -123,8 +124,11 @@ export default function Home() {
             </div>
           </div>
           {/** nan */}
+          
         </div>
-
+      </div>
+      <div  className='mt-[87px] drop-shadow-glow mb-4 text-white'>
+            <Footer/>
       </div>
     </div>
 
