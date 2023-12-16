@@ -92,7 +92,7 @@ export default function Home() {
             <div className='ml-auto mr-auto w-[100%] py-1 px-1 mb-4'>
               <div className='flex mb-2'>
                 <p className='ml-2 mr-auto'>You send</p>
-                <p className='ml-auto mr-4'>{`Balance: ${data?.formatted.slice(0,6)}`}</p>
+                <p className='ml-auto mr-4'>{`Balance: ${data ? data?.formatted.slice(0,6) : '-'}`}</p>
               </div>
               <TokenSelect />
             </div>
@@ -127,7 +127,7 @@ export default function Home() {
           
         </div>
       </div>
-      <div  className='mt-[87px] drop-shadow-glow mb-4 text-white'>
+      <div  className='mt-[60px] drop-shadow-glow mb-1 text-white'>
             <Footer/>
       </div>
     </div>

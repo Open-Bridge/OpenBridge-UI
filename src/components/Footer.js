@@ -1,7 +1,7 @@
 export const Footer = () => {
     return (
-    <div className="w-[100%] flex drop-shadow-glow bg-transparent">
-        <div className="ml-8 flex mr-auto py-1 px-1 drop-shadow-glow">
+    <div className="w-[100%] flex text-base drop-shadow-glow bg-transparent">
+        <div className="ml-8 flex mr-auto py-1 px-1">
             <p className="flex text-md px-1 py-3.5">Built with</p>
             <img className="h-12 w-28  " src="https://docs.chain.link/assets/icons/chainlink-logo.svg"/>
             <p className="flex text-md px-1 py-3.5"> CCIP</p>

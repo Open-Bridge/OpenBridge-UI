@@ -1,6 +1,7 @@
 'use client'
 // import Image from 'next/image'
 // import Wallet from "../components/Wallet";
+import { Footer } from '@/components/Footer'
 import { ChainList } from '@/components/Suspense/ChainList'
 import { FauceToken } from '@/components/Transfer/FaucetToken'
 import { OriginChainSelector } from '@/components/Transfer/OriginChainSelector';
@@ -45,7 +46,7 @@ export default function Home() {
     const { data, isLoading, isSuccess, write } = useContractWrite(config)
 
     return (
-        <div className='w-100% flex sm:h-[100%]'>
+        <div className='w-100% flex flex-col  sm:h-[100%]'>
             <Navbar />
             {isModalShowing && <ChainList />}
             {isTokenShowing && <TokenList />}
@@ -101,6 +102,9 @@ export default function Home() {
                 }
 
             </div>
+            <div  className='mt-[60px] drop-shadow-glow mb-1 text-white'>
+            <Footer/>
+      </div>
         </div>
 
     )
