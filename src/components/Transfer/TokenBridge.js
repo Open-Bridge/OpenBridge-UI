@@ -10,11 +10,11 @@ const { setIsTokenShowing, selectedToken, selectedTokenLogo ,amount } = GlobalCo
         <div  onClick={() => setIsTokenShowing(true)} className="flex py-1 px-1 ml-3 mr-auto">
           <div className=" flex">
             <img className="ml-1 mr-2" src={selectedTokenLogo} />
-            <p className="ml-1 mr-1">{selectedToken}</p>
+            <p className="ml-1 text-white mr-1">{selectedToken}</p>
           </div>
         </div>
         <div className="mr-1 ml-auto py-0.5 px-1">
-          <p className="font-extralight text-lg">{amount}</p>
+          <p className="font-extralight text-white text-lg">{amount}</p>
         </div>
       </div>
     </div>
